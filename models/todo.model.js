@@ -11,7 +11,7 @@ class Todo {
     if (this.id) {
       return db.getDb()
         .collection("todos")
-        .updateOne({ _id: new ObjectId(thisid) }, { $set: this.text });
+        .updateOne({ _id: new ObjectId(this.id) }, { $set: {text: this.text} });
     } else {
       return db.getDb().collection("todos").insertOne({ text: this.text });
     }
